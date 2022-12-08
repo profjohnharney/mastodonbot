@@ -9,7 +9,7 @@ const M = new Mastodon({
     client_secret: process.env.CLIENT_SECRET,
     access_token: process.env.ACCESS_TOKEN,
     timeout_ms: 60*1000,
-    api_url:'https://botsin.space/api/vq/',
+    api_url:'https://botsin.space/api/v1/',
 
 })
 
@@ -24,11 +24,11 @@ function toot_num() {
 const num = Math.floor(Math.random() * 100);
 
 const params = {
-    status: `There are currently${num} moderately disinterested souls circling around the core.`
+    status: `There are currently ${num} moderately disinterested souls circling around the core.`
 
 };
 
-M.post('status', params, (error, data) => {
+M.post('statuses', params, (error, data) => {
     if (error) {
         console.error(error);
     }
